@@ -6,6 +6,54 @@
     <meta name="viewport"
         content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no, viewport-fit=cover">
     <title>咕噜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-height: 32px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --font-size: 14px;
+            --border-radius: 4px;
+            --color: #999;
+            --border-color: #999;
+            --border-color-hover: #666;
+        }
+
+        body {
+            font-size: var(--font-size);
+        }
+        
+        #app {
+            margin: 20px;
+        }
+    </style>
+    <style>
+        .g-button {
+            font-size: var(--font-size);
+            height: var(--button-height);
+            padding: 0 1em;
+            border-radius: var(--border-radius);
+            background: var(--button-bg)
+        }
+
+        .g-button:hover {
+            border-color: var(--border-color-hover)
+        }
+
+        .g-button:active {
+            border-color: var(--button-active-bg)
+        }
+        .g-button:focus{
+            outline: none;
+        }
+    </style>
 </head>
 
 <body>
