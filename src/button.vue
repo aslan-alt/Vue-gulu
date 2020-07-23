@@ -1,11 +1,11 @@
 <template>
   <button class="g-button" :class="{[`icon-${iconPosition}`]:true}">
+    <g-icon v-if="icon" class="icon" :name="icon"></g-icon>
+    <g-icon v-if="icon" class="loading" name="loading"></g-icon>
+    <!-- <g-icon v-if="icon" :class="icon==='loading'?'icon loading':'icon' " :name="icon"></g-icon> -->
     <div class="content">
-      <slot></slot>
+      <slot />
     </div>
-    <svg v-if="icon" class="icon">
-      <use :xlink:href="`#i-${icon}`" />
-    </svg>
   </button>
 </template>
 
@@ -22,12 +22,17 @@ export default {
       },
     },
   },
-  mounted() {
-    console.log(this);
-  },
 };
 </script>
 <style lang="scss" scoped>
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .g-button {
   display: flex;
   display: inline-flex;
@@ -62,6 +67,9 @@ export default {
       order: 2;
       margin-left: 0.3em;
     }
+  }
+  .loading {
+    animation: spin 1s infinite linear;
   }
 }
 </style>
