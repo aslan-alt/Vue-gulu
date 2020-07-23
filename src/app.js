@@ -5,5 +5,4 @@ Vue.component('g-button', Button)
 
 new Vue({
     el: '#app',
-    render: h => h(Button)
 })

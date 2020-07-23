@@ -29,17 +29,39 @@
         body {
             font-size: var(--font-size);
         }
+
         #app {
             margin: 20px;
+           
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            display: flex;
+           
         }
     </style>
+
 </head>
 
 <body>
     <div id="app">
-        
+        <g-button icon="setting" icon-position="right">
+            设置
+        </g-button>
+        <g-button icon="setting" icon-position="left">
+            我爱JS
+        </g-button>
+        <g-button icon="setting" icon-position="right">
+            设置
+        </g-button>
+       
     </div>
     <script src="./src/app.js"></script>
+    <script src="//at.alicdn.com/t/font_1962141_du6efhalcb.js"></script>
 </body lang="scss">
 
 </html>
