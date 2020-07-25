@@ -6,7 +6,15 @@
 
 
 <script>
-export default {};
+export default {
+  mounted() {
+    for (let i = 0; i < this.$el.children.length; i++) {
+      const name = this.$el.children[i].nodeName.toLowerCase();
+      name !== "button" &&
+        console.warn(`g-button-group子元素必须是button,但你写的是${name}`);
+    }
+  },
+};
 </script>
 <style lang="scss" scoped>
 .button-group {
