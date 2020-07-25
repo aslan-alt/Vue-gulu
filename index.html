@@ -23,7 +23,7 @@
             --border-radius: 4px;
             --color: #999;
             --border-color: #999;
-            --border-color-hover: #666;
+            --border-color-hover: red;
         }
 
         body {
@@ -49,11 +49,21 @@
         <g-button :loading="true">
             我爱JS
         </g-button>
-
+        <g-button-group>
+            <g-button icon="left">
+                下一页
+            </g-button>
+            <g-button>
+                更多
+            </g-button>
+            <g-button icon="right" icon-position="right">
+                上一页
+            </g-button>
+        </g-button-group>
 
     </div>
     <script src="./src/app.js"></script>
-    <script src="//at.alicdn.com/t/font_1962141_smbwsg18mn.js"></script>
+    <script src="//at.alicdn.com/t/font_1962141_ktug1wfbif.js"></script>
 </body lang="scss">
 
 </html>

@@ -18,6 +18,7 @@ export default {
       type: String,
       default: "left",
       validator(value) {
+        console.log(value);
         return value === "left" || value === "right";
       },
     },
@@ -70,6 +71,9 @@ export default {
     > .icon {
       order: 2;
       margin-left: 0.3em;
+    }
+    > .content {
+      order: 1;
     }
   }
   .loading {
