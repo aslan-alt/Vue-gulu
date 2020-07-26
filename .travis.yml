@@ -1,0 +1,9 @@
+language:node_js
+node_js:
+  - "8"
+addons:
+  chrome:stable
+sud:required
+before_script:
+  - "sud chown root /opt/google/chrome/chrome-sandbox"
+  - "sud chown 4755 /opt/google/chrome/chrome-sandbox"
