@@ -7,6 +7,7 @@
 
 <script>
 export default {
+  name: "aslanButtonGroup",
   mounted() {
     for (let i = 0; i < this.$el.children.length; i++) {
       const name = this.$el.children[i].nodeName.toLowerCase();

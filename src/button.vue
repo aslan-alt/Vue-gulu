@@ -14,6 +14,7 @@
 import Icon from "./icon";
 
 export default {
+  name: "aslanButton",
   components: {
     "g-icon": Icon,
   },
