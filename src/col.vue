@@ -7,7 +7,6 @@
 
 <script>
 let validator = (value) => {
-  console.log(value);
   const keys = Object.keys(value);
   let valid = true;
   keys.forEach((key) => {
@@ -50,6 +49,21 @@ export default {
       gutter: 0,
     };
   },
+  methods: {
+    createClasses(obj, str) {
+      if (!obj) {
+        return [];
+      }
+      let array = [];
+      if (obj.span) {
+        array.push(`col-${str}-${obj.span}`);
+      }
+      if (obj.offset) {
+        array.push(`offset-${obj.offset}`);
+      }
+      return array;
+    },
+  },
   computed: {
     colStyle() {
       return {
@@ -58,16 +72,16 @@ export default {
       };
     },
     colClass() {
-      const { span, offset, ipad, narrowPc, pc, widePc } = this;
+      const { span, offset, ipad, narrowPc, pc, widePc, createClasses } = this;
 
       return [
         span && `col-${span}`,
         offset && `offset-${offset}`,
 
-        ...(ipad ? [`col-ipad-${ipad.span}`] : []),
-        ...(pc ? [`col-pc-${pc.span}`] : []),
-        ...(widePc ? [`col-widePc-${widePc.span}`] : []),
-        ...(narrowPc ? [`col-narrowPc-${narrowPc.span}`] : []),
+        ...createClasses(ipad, "ipad"),
+        ...createClasses(narrowPc, "narrow-pc"),
+        ...createClasses(pc, "pc"),
+        ...createClasses(widePc, "wide-pc"),
       ];
     },
   },
