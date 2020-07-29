@@ -39,7 +39,6 @@ export default {
 .col {
   height: 100px;
   // background: grey;
-  width: 50%;
 
   $class-prefix: col-;
   @for $n from 1 through 24 {
