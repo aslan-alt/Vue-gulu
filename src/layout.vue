@@ -1,11 +1,17 @@
-<template></template>
+<template>
+  <div class="layout">
+    <solt />
+  </div>
+</template>
 
 
 <script>
 export default {
-  name: "aslanLaout",
+  name: "aslanLayout",
 };
 </script>
 <style lang="scss" scoped>
+.layout {
+}
 </style>
 
