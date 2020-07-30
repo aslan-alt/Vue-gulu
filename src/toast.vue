@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" ref="wrapper">
+  <div class="toast" ref="wrapper" :class="toastClasses">
     <div class="message">
       <div v-if="enableHtml" v-html="$slots.default[0]"></div>
       <slot v-if="!enableHtml"></slot>
@@ -16,7 +16,7 @@ export default {
   props: {
     autoClose: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     autoCloseDelay: {
       type: Number,
@@ -35,8 +35,19 @@ export default {
       type: Boolean,
       default: false,
     },
+    position: {
+      type: String,
+      default: "middle",
+      validator(value) {
+        return ["top", "bottom", "middle"].indexOf(value) >= 0;
+      },
+    },
   },
-
+  computed: {
+    toastClasses() {
+      return { [`position-${this.position}`]: true };
+    },
+  },
   mounted() {
     this.updateStyles();
     this.execAutoClose();
@@ -80,10 +91,10 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   line-height: 1.8;
   min-height: $toast-height;
   position: fixed;
-  top: 0;
+
   left: 50%;
-  color: white;
   transform: translateX(-50%);
+  color: white;
   font-size: $font-size;
   display: flex;
   justify-content: center;
@@ -96,6 +107,22 @@ $toast-bg: rgba(0, 0, 0, 0.75);
     height: 100%;
     border-left: 1px solid #666;
     margin-left: 16px;
+  }
+  &.position-top {
+    top: 0;
+  }
+  &.position-left {
+    left: 0;
+    transform: translateX(-50%);
+  }
+  &.position-bottom {
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+  &.position-middle {
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
   .message {
     padding: 8px 0;
