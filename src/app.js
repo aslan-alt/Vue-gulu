@@ -10,7 +10,10 @@ import Sider from './sider.vue'
 import Footer from './footer.vue'
 import Content from './content.vue'
 import Layout from './layout.vue'
+import Toast from './toast.vue'
+import plugin from './plugin.js'
 
+Vue.use(plugin)
 
 Vue.component('g-input', Input)
 Vue.component('g-icon', Icon)
@@ -23,6 +26,7 @@ Vue.component('g-sider', Sider)
 Vue.component('g-footer', Footer)
 Vue.component('g-content', Content)
 Vue.component('g-layout', Layout)
+Vue.component('g-toast', Toast)
 
 new Vue({
     el: '#app',
@@ -36,6 +40,9 @@ new Vue({
     methods: {
         inputChange(e) {
             console.log(e.target.value)
+        },
+        showToast() {
+            this.$toast('只是toast slot')
         }
     }
 })
