@@ -35,14 +35,22 @@ new Vue({
         message: 'hi'
     },
     created() {
-
+        this.$toast('我的天', {
+            closeButton: {
+                text: '知道了',
+                callback() {
+                    console.log('用户说他知道了')
+                }
+            },
+            enableHtml: true
+        })
     },
     methods: {
         inputChange(e) {
             console.log(e.target.value)
         },
         showToast() {
-            this.$toast('只是toast slot')
+
         }
     }
 })
