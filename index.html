@@ -30,24 +30,22 @@
             font-size: var(--font-size);
         }
 
-        #app {
-            margin: 20px;
-        }
 
-        .box {
-            margin: 20px
-        }
 
-        .demoBox {
+
+        .footer {
+            background: #ccc;
             height: 50px;
-            background: gray;
-            border: 1px solid red;
         }
 
-        .demo {
-            background: #dddd;
-            border: 1px solid #666;
+        .header {
+            background: #999;
             height: 100px;
+        }
+
+        .sider {
+            background: #333;
+            width: 200px;
         }
     </style>
 
@@ -55,79 +53,17 @@
 
 <body>
     <div id="app">
+        <g-layout style="height: 100vh;">
+            <g-sider>xxx</g-sider>
 
+            <g-layout>
+                <g-header>header</g-header>
+                <g-content>content</g-content>
+                <g-footer>footer</g-footer>
+            </g-layout>
 
-        <g-row>
-            <g-col class="demo" :ipad="{span:12,offset:1}" :narrow-pc="{span:8}">
-                <div></div>
-            </g-col>
-            <g-col class="demo" :ipad="{span:12}" :narrow-pc="{span:8}">
-                <div></div>
-            </g-col>
-            <g-col class="demo" :ipad="{span:12}" :narrow-pc="{span:8}">
-                <div></div>
-            </g-col>
-            <g-col class="demo" :ipad="{span:12}" :narrow-pc="{span:8}">
-                <div></div>
-            </g-col>
-            <g-col class="demo" :ipad="{span:12}" :narrow-pc="{span:8}">
-                <div></div>
-            </g-col>
-        </g-row>
+        </g-layout>
 
-        <!-- <div style="border: 1px solid black;">
-            <g-row gutter="10">
-                <g-col span="12" gutter="10">1</g-col>
-                <g-col :span="12" gutter="10">1</g-col>
-            </g-row>
-            <g-row gutter="10">
-                <g-col span="2" gutter="10">1</g-col>
-                <g-col offset="2" :span="20" gutter="10">1</g-col>
-            </g-row>
-            <g-row>
-                <g-col span="4">1</g-col>
-                <g-col offset="18" :span="2">1</g-col>
-
-            </g-row>
-            <g-row>
-                <g-col span="4">1</g-col>
-                <g-col offset="8" :span="2">1</g-col>
-                <g-col offset="8" :span="2">1</g-col>
-            </g-row>
-        </div> -->
-        <!-- <g-row>
-            <g-col span="11"></g-col>
-            <g-col :span="11"></g-col>
-        </g-row> -->
-        <!-- <div>
-            <g-input v-model="message"></g-input>
-            <p>{{message}}</p>
-        </div>
-        <div class="box">
-            <g-button icon="setting" icon-position="right">
-                设置
-            </g-button>
-            <g-button icon="setting" icon-position="left" :loading="loading1" @click="loading1 = !loading1">
-                我爱JS
-            </g-button>
-            <g-button :loading="true">
-                我爱JS
-            </g-button>
-            <g-button-group>
-                <g-button icon="left">
-                    下一页
-                </g-button>
-                <g-button>
-                    更多
-                </g-button>
-                <g-button icon="right" icon-position="right">
-                    上一页
-                </g-button>
-
-            </g-button-group>
-        </div>
-
-        <div id="test"></div> -->
 
     </div>
     <script src="./src/app.js"></script>
