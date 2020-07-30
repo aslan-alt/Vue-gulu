@@ -37,7 +37,7 @@ export default {
     },
     position: {
       type: String,
-      default: "middle",
+      default: "bottom",
       validator(value) {
         return ["top", "bottom", "middle"].indexOf(value) >= 0;
       },
@@ -75,6 +75,7 @@ export default {
     },
     onClickClose() {
       this.close();
+      this.$eimt("close");
       if (this.closeButton && typeof this.closeButton.callback === "function") {
         this.closeButton.callback();
       }
@@ -86,8 +87,18 @@ export default {
 $font-size: 14px;
 $toast-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
-
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
 .toast {
+  animation: fade-in 2s;
   line-height: 1.8;
   min-height: $toast-height;
   position: fixed;
