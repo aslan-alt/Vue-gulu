@@ -37,7 +37,6 @@ describe('Input', () => {
 
         })
         it('接受 readonly', () => {
-
             vm = new Constructor({
                 propsData: {
                     readonly: true
@@ -46,11 +45,8 @@ describe('Input', () => {
             const inputElement = vm.$el.querySelector('input')
             // console.log(inputElement.outerHTML)
             expect(inputElement.readOnly).to.equal(true)
-
-
         })
         it('接受 error', () => {
-
             vm = new Constructor({
                 propsData: {
                     error: '错误'
@@ -85,8 +81,6 @@ describe('Input', () => {
                 console.log(eventName)
                 expect(callback).to.have.been.calledWith('hi')
             })
-
         })
-
     })
 })
