@@ -7,6 +7,7 @@ let currentToast
 export default {
     install(Vue, options) {
         Vue.prototype.$toast = function (message, toastOptions) {
+            currentToast && console.log(currentToast)
             if (currentToast) {
                 currentToast.close()
             }

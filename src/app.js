@@ -41,17 +41,30 @@ new Vue({
         inputChange(e) {
             console.log(e.target.value)
         },
-        showToast() {
-            this.$toast('我的天', {
+        showToast1() {
+
+            this.showToast('top')
+        },
+        showToast2() {
+            this.showToast('bottom')
+        },
+        showToast3() {
+
+            this.showToast('middle')
+        },
+        showToast(position) {
+            this.$toast(`当前余额${Math.random() * 1000}`, {
+                position,
                 closeButton: {
-                    text: '知道了',
+                    text: '关闭',
                     callback() {
                         console.log('用户说他知道了')
                     }
                 },
                 enableHtml: true
             })
-        }
+        },
+
     }
 })
 
