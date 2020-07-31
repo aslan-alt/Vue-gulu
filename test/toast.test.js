@@ -27,7 +27,7 @@ describe('Toast', () => {
 
             })
         })
-        it('接受closeButton', () => {
+        it('接受closeButton', (done) => {
             const callback = sinon.fake()
             const Constructor = Vue.extend(Toast)
             const vm = new Constructor({
@@ -40,8 +40,12 @@ describe('Toast', () => {
             }).$mount()
             const close = vm.$el.querySelector('.close')
             expect(close.textContent.trim()).to.equal('关闭')
-            close.click()
-            expect(callback).to.have.been.called
+            setTimeout(() => {
+                close.click()
+                expect(callback).to.have.been.called
+                done()
+            }, 200);
+
         })
         it('接受 enableHtml', () => {
             const Constructor = Vue.extend(Toast)
@@ -62,7 +66,7 @@ describe('Toast', () => {
                     position: 'middle'
                 }
             }).$mount()
-            console.log(vm.$el.classList)
+
             expect(vm.$el.classList.contains('position-middle')).to.equal(true)
         })
 

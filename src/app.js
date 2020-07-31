@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import plugin from './plugin.js'
+
 import Button from './button.vue'
 import Icon from './icon.vue'
 import ButtonGroup from './button-group.vue'
@@ -11,7 +13,14 @@ import Footer from './footer.vue'
 import Content from './content.vue'
 import Layout from './layout.vue'
 import Toast from './toast.vue'
-import plugin from './plugin.js'
+import Tabs from './tabs.vue'
+import TabsHead from './tabs-head.vue'
+import TabsBody from './tabs-body.vue'
+import TabsItem from './tabs-item.vue'
+import TabsPane from './tabs-pane.vue'
+
+
+
 
 Vue.use(plugin)
 
@@ -27,7 +36,11 @@ Vue.component('g-footer', Footer)
 Vue.component('g-content', Content)
 Vue.component('g-layout', Layout)
 Vue.component('g-toast', Toast)
-
+Vue.component('g-tabs', Tabs)
+Vue.component('g-tabs-head', TabsHead)
+Vue.component('g-tabs-body', TabsBody)
+Vue.component('g-tabs-item', TabsItem)
+Vue.component('g-tabs-pane', TabsPane)
 new Vue({
     el: '#app',
     data: {

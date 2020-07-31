@@ -30,9 +30,6 @@
             font-size: var(--font-size);
         }
 
-
-
-
         .footer {
             background: #ccc;
             height: 50px;
@@ -53,11 +50,32 @@
 
 <body>
     <div id="app">
-        <!-- <g-toast></g-toast> -->
-        <button @click=showToast1>top</button>
-        <button @click=showToast2>bottom</button>
-        <button @click=showToast3>middle</button>
-
+        <g-tabs selectedTab.sync="selectedTab">
+            <g-head>
+                <button slot="actions">wowowowow</button>
+                <g-tabs-item name="woman">
+                    <g-icon name="setting"></g-icon>
+                    人物
+                </g-tabs-item>
+                <g-tabs-item name="finance">
+                    财经
+                </g-tabs-item>
+                <g-tabs-item name="sports">
+                    体育
+                </g-tabs-item>
+            </g-head>
+            <g-tabs-body>
+                <g-tabs-pane name="woman">
+                    人物相关资讯
+                </g-tabs-pane>
+                <g-tabs-pane name="finance">
+                    财经相关资讯
+                </g-tabs-pane>
+                <g-tabs-pane name="sports">
+                    体育相关资讯
+                </g-tabs-pane>
+            </g-tabs-body>
+        </g-tabs>
 
     </div>
     <script src="./src/app.js"></script>
