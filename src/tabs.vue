@@ -1,12 +1,13 @@
 <template>
   <div class="tabs">
     <slot></slot>
-    <slot name="actions"></slot>
   </div>
 </template>
 
 
 <script>
+import Vue from "vue";
+
 export default {
   name: "aslanTabs",
   props: {
@@ -22,8 +23,19 @@ export default {
       },
     },
   },
+  data() {
+    return {
+      eventBus: new Vue(),
+    };
+  },
+  provide() {
+    return {
+      eventBus: this.eventBus,
+    };
+  },
   created() {
     this.$emit("update:selected", "xxx");
+    console.log(this.eventBus);
   },
 };
 </script>

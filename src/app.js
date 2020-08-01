@@ -45,7 +45,8 @@ new Vue({
     el: '#app',
     data: {
         loading1: false,
-        message: 'hi'
+        message: 'hi',
+        selectedTab: 1
     },
     created() {
 

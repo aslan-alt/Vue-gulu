@@ -8,6 +8,10 @@
 <script>
 export default {
   name: "aslanTabsItem",
+  inject: ["eventBus"],
+  created() {
+    console.log(this.eventBus);
+  },
 };
 </script>
 <style lang="scss" scoped>
