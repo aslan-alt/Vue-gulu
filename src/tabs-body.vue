@@ -9,9 +9,7 @@
 export default {
   name: "aslanTabsItem",
   inject: ["eventBus"],
-  created() {
-    console.log(this.eventBus);
-  },
+  created() {},
 };
 </script>
 <style lang="scss" scoped>

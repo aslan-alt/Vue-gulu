@@ -25,8 +25,7 @@ export default {
   },
   inject: ["eventBus"],
   created() {
-    this.eventBus.$on("update:selected", (name) => {
-      console.log(name);
+    this.eventBus.$on("update:selected", (name, vm) => {
       this.active = name === this.name;
     });
   },
@@ -37,21 +36,23 @@ export default {
   },
   methods: {
     xxx() {
-      this.eventBus.$emit("update:selected", this.name);
+      this.eventBus.$emit("update:selected", this.name, this);
     },
   },
 };
 </script>
 <style lang="scss" scoped>
+$blue: blue;
 .tabs-item {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
   border: 1px solid red;
+  height: 100%;
   padding: 0 1em;
   &.active {
-    background: red;
+    color: $blue;
   }
 }
 </style>
