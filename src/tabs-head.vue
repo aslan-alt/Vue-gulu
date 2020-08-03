@@ -24,14 +24,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 $tab-height: 40px;
-$blue: blue;
+$blue: red;
+$border-color: #ddd;
 .tabs-head {
   display: flex;
   height: $tab-height;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid red;
+
   position: relative;
+  border-bottom: 1px solid $border-color;
   > .line {
     transition: all 0.3s;
     position: absolute;
