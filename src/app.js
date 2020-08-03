@@ -46,12 +46,15 @@ new Vue({
     data: {
         loading1: false,
         message: 'hi',
-        selectedTab: 1
+        selectedTab: 'sports'
     },
     created() {
 
     },
     methods: {
+        yyy(data) {
+            console.log(data)
+        },
         inputChange(e) {
             console.log(e.target.value)
         },

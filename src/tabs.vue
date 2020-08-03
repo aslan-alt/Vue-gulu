@@ -12,7 +12,7 @@ export default {
   name: "aslanTabs",
   props: {
     selected: {
-      type: String,
+      type: [String, Number],
       required: true,
     },
     direction: {
@@ -33,9 +33,9 @@ export default {
       eventBus: this.eventBus,
     };
   },
-  created() {
-    this.$emit("update:selected", "xxx");
-    console.log(this.eventBus);
+
+  mounted() {
+    this.eventBus.$emit("update:selected", this.selected);
   },
 };
 </script>
