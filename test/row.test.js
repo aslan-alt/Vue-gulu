@@ -11,7 +11,7 @@ describe('Row', () => {
         expect(Row).to.exist
     })
     const rowConstructor = Vue.extend(Row)
-    const colConstructor = Vue.extend(Col)
+    // const colConstructor = Vue.extend(Col)
 
     it('接受gutter 属性', (done) => {
         Vue.component('g-row', Row)

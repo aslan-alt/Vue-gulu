@@ -35,6 +35,11 @@ export default {
   },
 
   mounted() {
+    if (this.$children.length === 0) {
+      console &&
+        console.warn &&
+        console.warn("g-tabs的子组件应该是g-tabs-head和g-tabs-body");
+    }
     this.$children.forEach((vm) => {
       if (vm.$options.name === "aslanTabsHeader") {
         vm.$children.forEach((childVm) => {
