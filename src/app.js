@@ -54,8 +54,8 @@ new Vue({
 
     },
     methods: {
-        yyy(data) {
-            console.log(data)
+        yyy() {
+            console.log('xxx')
         },
         inputChange(e) {
             console.log(e.target.value)
