@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" @click="onClick" ref="popover">
+  <div class="popover" ref="popover">
     <div ref="contentWrapper" class="content-wrapper" :class="{[`position-${position}`]:position}" v-if="visible">
       <slot name="content"></slot>
     </div>
@@ -13,11 +13,6 @@
 <script>
 export default {
   name: "aslanPopover",
-  data() {
-    return {
-      visible: false,
-    };
-  },
   props: {
     position: {
       type: String,
@@ -25,13 +20,50 @@ export default {
       validator(value) {
         return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0
       }
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator(value) {
+        console.log(value)
+        return ['hover', 'click'].indexOf(value) >= 0
+      }
     }
   },
-  mounted() { },
+  data() {
+    return {
+      visible: false,
+    };
+  },
+  mounted() {
+    if (this.trigger === 'click') {
+      this.$refs.popover.addEventListener('click', this.onClick)
+    } else {
+      this.$refs.popover.addEventListener('mouseenter', () => {
+        this.open()
+      })
+      this.$refs.popover.addEventListener('mouseleave', () => {
+        this.close()
+      })
+    }
+  },
+  destroyed() {
+    if (this.trigger === 'click') {
+      this.$refs.popover.removeEventListener('click', this.onClick)
+    } else {
+      this.$refs.popover.removeEventListener('mouseenter', () => {
+        this.open()
+      })
+      this.$refs.popover.removeEventListener('mouseleave', () => {
+        this.close()
+      })
+    }
+  },
   methods: {
     positionContent() {//找到按钮的位置，从而改变popover内容的位置
       const { top, left, width, height } = this.$refs.triggerWrapper.getBoundingClientRect();
       const { contentWrapper } = this.$refs;
+
       const { height: height2 } = contentWrapper.getBoundingClientRect()
       document.body.appendChild(contentWrapper);
       const positions = {
@@ -112,6 +144,7 @@ $border-radius: 4px;
     &::before,
     &::after {
       border-top-color: black;
+      border-bottom: none;
       top: 100%;
       left: 10px;
     }
@@ -125,6 +158,7 @@ $border-radius: 4px;
     &::before,
     &::after {
       left: 10px;
+      border-top: none;
     }
     &::before {
       border-bottom-color: black;
@@ -140,6 +174,7 @@ $border-radius: 4px;
     margin-left: -10px;
     &::before,
     &::after {
+      border-right: none;
       border-left-color: black;
       left: 100%;
       transform: translateY(-50%);
@@ -154,6 +189,7 @@ $border-radius: 4px;
     margin-left: 10px;
     &::before,
     &::after {
+      border-left: none;
       border-right-color: black;
       right: 100%;
       transform: translateY(-50%);
