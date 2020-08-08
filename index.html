@@ -51,11 +51,16 @@
 <body>
 
     <div id="app" style="padding-top: 100px;padding-left:100px ;">
-        <div style="border: 1px solid green;overflow: hidden;" @click="yyy">
+        <div @click="yyy">
             <g-popover position="bottom">
-                <div slot="content">
-                    内容sads
-                </div>
+                <template slot="content" slot-scope="{close}">
+                    <div>
+                        内容
+                        <button @click="close">关闭</button>
+                    </div>
+
+                </template>
+
                 <g-button>点我</button>
             </g-popover position="top">
             <g-popover>
