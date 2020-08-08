@@ -32,25 +32,16 @@ export default {
     positionContent() {//找到按钮的位置，从而改变popover内容的位置
       const { top, left, width, height } = this.$refs.triggerWrapper.getBoundingClientRect();
       const { contentWrapper } = this.$refs;
+      const { height: height2 } = contentWrapper.getBoundingClientRect()
       document.body.appendChild(contentWrapper);
-      console.log(this.position)
-      if (this.position === 'top') {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + window.scrollY + "px";
-      } else if (this.position === 'bottom') {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + height + scrollY + "px";
-      } else if (this.position === 'left') {
-        const { height: height2 } = contentWrapper.getBoundingClientRect()
-        contentWrapper.style.left = (left + window.scrollX) + "px";
-        contentWrapper.style.top = (top + window.scrollY) + (height - height2) / 2 + "px";
-
-        console.log(height2)
-      } else if (this.position === 'right') {
-        const { height: height2 } = contentWrapper.getBoundingClientRect()
-        contentWrapper.style.left = (left + window.scrollX + width) + "px";
-        contentWrapper.style.top = (top + window.scrollY) + (height - height2) / 2 + "px";
+      const positions = {
+        top: { left: left + window.scrollX, top: top + window.scrollY },
+        bottom: { left: left + window.scrollX, top: top + height + scrollY },
+        left: { left: (left + window.scrollX), top: (top + window.scrollY) + (height - height2) / 2 },
+        right: { left: (left + window.scrollX + width), top: (top + window.scrollY) + (height - height2) / 2 }
       }
+      contentWrapper.style.left = positions[this.position].left + 'px';
+      contentWrapper.style.top = positions[this.position].top + 'px';
     },
     onClickDocument(e) {
       const { contentWrapper } = this.$refs;
