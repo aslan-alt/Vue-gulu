@@ -51,55 +51,10 @@
 <body>
 
     <div id="app" style="padding-top: 100px;padding-left:100px ;">
-        <div @click="yyy">
-            <g-popover position="bottom">
-                <template slot="content" slot-scope="{close}">
-                    <div>
-                        内容
-                        <button @click="close">关闭</button>
-                    </div>
-
-                </template>
-
-                <g-button>点我</button>
-            </g-popover position="top">
-            <g-popover>
-                <div slot="content">内容</div>
-                <g-button>点我</button>
-            </g-popover>
-            <div>
-                <g-popover position="left">
-                    <div slot="content">内容</div>
-                    <g-button>点我</button>
-                </g-popover>
-                <g-popover position="right">
-                    <div slot="content">内容</div>
-                    <g-button>点我</button>
-                </g-popover>
-            </div>
-        </div>
-        <div style="overflow: hidden;padding-top:20px ;" @click="yyy">
-            <g-popover position="bottom" trigger="hover">
-                <div slot="content">
-                    内容sads
-                </div>
-                <g-button>点我</button>
-            </g-popover position="top" trigger="hover">
-            <g-popover>
-                <div slot="content">内容</div>
-                <g-button>点我</button>
-            </g-popover>
-            <div>
-                <g-popover position="left" trigger="hover">
-                    <div slot="content">内容</div>
-                    <g-button>点我</button>
-                </g-popover>
-                <g-popover position="right">
-                    <div slot="content">内容</div>
-                    <g-button>点我</button>
-                </g-popover>
-            </div>
-        </div>
+        <g-collapse>
+            <g-collapse-item title="标题1">内容1</g-collapse-item>
+            <g-collapse-item title="标题2">内容2</g-collapse-item>
+        </g-collapse>
     </div>
     <script src="./src/app.js"></script>
 
