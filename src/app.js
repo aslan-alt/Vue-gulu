@@ -52,7 +52,7 @@ new Vue({
     data: {
         loading1: false,
         message: 'hi',
-        selectedTab: 'sports'
+        selectedTab: ['2', '1']
     },
     methods: {
         yyy() {

@@ -20,7 +20,7 @@ export default {
       default: false
     },
     selected: {
-      type: String,
+      type: Array,
     }
   },
   provide() {
@@ -32,6 +32,23 @@ export default {
   },
   mounted() {
     this.eventBus.$emit('update:selected', this.selected)
+    this.eventBus.$on('update:addSelected', (name) => {
+      let selectedCopy = JSON.parse(JSON.stringify(this.selected))
+      if (this.single) {
+        selectedCopy = [name]
+      } else {
+        selectedCopy.push(name)
+      }
+      this.eventBus.$emit('update:selected', selectedCopy)
+      this.$emit('update:selected', selectedCopy)
+    })
+    this.eventBus.$on('update:removeSelected', (name) => {
+      let selectedCopy = JSON.parse(JSON.stringify(this.selected.filter(item => item !== name)))
+
+      this.eventBus.$emit('update:selected', selectedCopy)
+      this.$emit('update:selected', selectedCopy)
+    })
+
   }
 };
 </script>
