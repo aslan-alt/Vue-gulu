@@ -29,7 +29,6 @@ export default {
   },
   mounted() {
     this.eventBus && this.eventBus.$on('update:selected', (names) => {
-      console.log(name)
       if (names.indexOf(this.name) >= 0) {
         this.open = true
       } else {
