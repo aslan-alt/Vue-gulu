@@ -2,7 +2,6 @@
   <button class="g-button" :class="{[`icon-${iconPosition}`]:true}" @click="$emit('click')">
     <g-icon v-if="icon && !loading" class="icon" :name="icon"></g-icon>
     <g-icon v-if="loading" class="loading icon" name="loading"></g-icon>
-    <!-- <g-icon v-if="icon" :class="icon==='loading'?'icon loading':'icon' " :name="icon"></g-icon> -->
     <div class="content">
       <slot />
     </div>
@@ -35,6 +34,16 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$button-height: 32px;
+$font-size: 14px;
+$button-height: 32px;
+$button-bg: white;
+$button-active-bg: #eee;
+$font-size: 14px;
+$border-radius: 4px;
+$color: #999;
+$border-color: #999;
+$border-color-hover: #666;
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -49,20 +58,19 @@ export default {
   justify-content: center;
   align-items: center;
   vertical-align: middle;
-  font-size: var(--font-size);
-  height: var(--button-height);
-  border: 1px solid var(--border-color);
+  font-size: $font-size;
+  height: $button-height;
+  border: 1px solid $border-color;
   padding: 0 1em;
-  border-radius: var(--border-radius);
-  background: var(--button-bg);
+  border-radius: $border-radius;
+  background: $button-bg;
   &:hover {
-    border-color: var(--border-color-hover);
+    border-color: $border-color-hover;
   }
 
   &:active {
-    border-color: var(--button-active-bg);
+    border-color: $button-active-bg;
   }
-
   &:focus {
     outline: none;
   }
