@@ -31,10 +31,9 @@ export default {
     this.eventBus && this.eventBus.$on('update:selected', (names) => {
       console.log(name)
       if (names.indexOf(this.name) >= 0) {
-
-        this.show()
+        this.open = true
       } else {
-        this.close()
+        this.open = false
       }
     })
   },
@@ -45,12 +44,6 @@ export default {
       } else {
         this.eventBus && this.eventBus.$emit('update:addSelected', this.name)
       }
-    },
-    close() {
-      this.open = false
-    },
-    show() {
-      this.open = true
     }
   },
   inject: ['eventBus']
