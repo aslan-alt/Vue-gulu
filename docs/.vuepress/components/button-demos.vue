@@ -4,7 +4,7 @@
     <g-button>默认按钮</g-button>
     <g-button icon="setting">默认按钮</g-button>
     <g-button :loading="true">默认按钮</g-button>
-
+    <g-button disabled>默认按钮</g-button>
     <pre style="color:white;font-size:16px">{{content}}</pre>
 
   </div>
@@ -22,10 +22,22 @@ export default {
   data() {
     return {
       content: `
-<g-button>默认按钮</g-button>
-<g-button icon="setting">默认按钮</g-button>
-<g-button :loading="true">默认按钮</g-button>
-<g-button disabled>默认按钮</g-button>
+<template>
+  <g-button>默认按钮</g-button>
+  <g-button icon="setting">默认按钮</g-button>
+  <g-button :loading="true">默认按钮</g-button>
+  <g-button disabled>默认按钮</g-button>
+</template>
+
+import {Button} from 'gulu-aslan'
+
+export default {
+  components: {
+    'g-button': Button
+  }
+}
+
+
       `.trim()
     }
   }

@@ -1,6 +1,11 @@
 <template>
   <div>
-
+    <g-collapse :selected.sync="selectedItem" single>
+      <g-collapse-item title="土豆" name="1">土豆丝、土豆烧牛腩、老干妈土豆丝</g-collapse-item>
+      <g-collapse-item title="茄子" name="2">红烧茄子、鱼香茄子、烤茄子</g-collapse-item>
+    </g-collapse>
+    <p v-if="selectedItem.length >= 1" style="color:green">您展开标题{{...selectedItem}} 的内容</p>
+    <p v-else style="color:green">您目前没选中任何内容，可以添加默认值的哦</p>
     <pre style="color:white;font-size:16px">{{content}}</pre>
 
   </div>
@@ -24,8 +29,8 @@ export default {
       content: `
 <template>
     <g-collapse :selected.sync="selectedTab" single>
-      <g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
-      <g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
+      <g-collapse-item title="土豆丝" name="1">土豆丝、土豆烧牛腩、老干妈土豆丝</g-collapse-item>
+      <g-collapse-item title="茄子" name="2">红烧茄子、鱼香茄子、烤茄子</g-collapse-item>
       {{selectedTab}}
     </g-collapse>
 <template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tabs-head">
+  <div class="tabs-head" ref="head">
     <slot></slot>
     <div class="line" ref="line"></div>
     <div class="actions-wrapper">
@@ -15,16 +15,17 @@ export default {
   inject: ["eventBus"],
   mounted() {
     this.eventBus.$on("update:selected", (name, vm) => {
+      let { left: wrapperLeft } = this.$refs.head.getBoundingClientRect()//防止外面有嵌套，left的位置不准确
       let { width, height, top, left } = vm.$el.getBoundingClientRect();
       this.$refs.line.style.width = width + "px";
-      this.$refs.line.style.left = left + "px";
+      this.$refs.line.style.left = (left - wrapperLeft) + "px";
     });
   },
 };
 </script>
 <style lang="scss" scoped>
 $tab-height: 40px;
-$blue: red;
+$red: red;
 $border-color: #ddd;
 .tabs-head {
   display: flex;
@@ -38,7 +39,7 @@ $border-color: #ddd;
     transition: all 0.3s;
     position: absolute;
     bottom: 0;
-    border-bottom: 1px solid $blue;
+    border-bottom: 1px solid $red;
   }
   > .actions-wrapper {
     margin-left: auto;

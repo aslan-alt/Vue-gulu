@@ -1,13 +1,16 @@
 <template>
   <transition name="fade">
-    <div class="sider">
-      <button @click="hide" v-if="visible">
-        <slot></slot>
+    <!-- <div > -->
+    <div class="sider" v-if="show">
+      <button @click="hide" class="tab">
+        <slot name="button"></slot>
       </button>
-      <div v-else>
-        <slot></slot>
+      <div class="content">
+        <slot name="content"></slot>
       </div>
     </div>
+    <!-- </div> -->
+
   </transition>
 </template>
 
@@ -17,12 +20,18 @@ export default {
   name: "aslanSider",
   data() {
     return {
-      visible: false,
+      show: this.visible,
     };
+  },
+  props: {
+    visible: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     hide() {
-      this.visible = !this.visible;
+      this.show = !this.show;
     },
   },
 };
@@ -38,9 +47,24 @@ export default {
 .sider {
   position: relative;
   > button {
-    position: absolute;
-    top: 0;
-    right: 0;
+    border: none;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    &:focus {
+      outline: none;
+    }
+  }
+  .tab {
+    width: 100%;
+    border: none;
+    padding: 10px 0;
+  }
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50%;
   }
 }
 </style>

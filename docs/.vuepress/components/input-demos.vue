@@ -32,7 +32,18 @@ export default {
 <g-input value="哇塞" error="可接受错误提示参数，并自带警示icon" />
 <g-input value="禁用了哦" disabled />
 <g-input value="只能读哦" readonly />
-<g-input v-model="string" />`.trim(),
+<g-input v-model="string" />
+import {Input} from 'gulu-aslan'
+export default {
+  components: {
+    'g-input': Input
+  },
+  data(){
+    return {
+      string: '你要绑定的值',
+    }
+  }
+}`.trim(),
       string: '在这输入，改变notes'
     }
   }

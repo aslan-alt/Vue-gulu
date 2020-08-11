@@ -53,7 +53,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$blue: red;
+$red: red;
 .tabs-item {
   display: flex;
   justify-content: center;
@@ -63,7 +63,7 @@ $blue: red;
   height: 100%;
   padding: 0 1em;
   &.active {
-    color: $blue;
+    color: $red;
   }
   &.disabled {
     color: gray;

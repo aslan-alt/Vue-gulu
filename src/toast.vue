@@ -55,12 +55,15 @@ export default {
 
     // this.$refs.line.style.height =
   },
+  created() {
+    console.log('xxxx')
+  },
   methods: {
     updateStyles() {
       this.$nextTick(() => {
         this.$refs.line.style.height = `${
           this.$refs.toast.getBoundingClientRect().height
-        }px`;
+          }px`;
       });
     },
     execAutoClose() {
@@ -71,10 +74,12 @@ export default {
       }
     },
     close() {
+      console.log(this.$el)
       this.$el.remove();
       this.$destroy();
     },
     onClickClose() {
+      console.log('xxx')
       this.close();
       this.$emit("close");
       if (this.closeButton && typeof this.closeButton.callback === "function") {

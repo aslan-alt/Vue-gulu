@@ -33,9 +33,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$red: red;
 .tabs-pane {
   padding: 1em;
   &.active {
+    color: $red;
   }
 }
 </style>

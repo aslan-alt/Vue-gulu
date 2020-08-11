@@ -1,4 +1,8 @@
 ---
 title:Toast
 ---
-# Tabs
+# toast
+
+<ClientOnly>
+<toast-demos></toast-demos>
+</ClientOnly>

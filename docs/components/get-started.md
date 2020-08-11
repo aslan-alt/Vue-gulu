@@ -6,5 +6,5 @@ title:快速上手
 
 # 第一个例子
 <ClientOnly>
-<getStated-demos></getStated-demos>
+<button-demos></button-demos>
 </ClientOnly>
