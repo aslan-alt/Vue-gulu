@@ -1,8 +1,12 @@
 <template>
   <transition name="fade">
-    <div class="sider" v-if="visible">
-      <slot></slot>
-      <button @click="hide">close</button>
+    <div class="sider">
+      <button @click="hide" v-if="visible">
+        <slot></slot>
+      </button>
+      <div v-else>
+        <slot></slot>
+      </div>
     </div>
   </transition>
 </template>
@@ -13,7 +17,7 @@ export default {
   name: "aslanSider",
   data() {
     return {
-      visible: true,
+      visible: false,
     };
   },
   methods: {

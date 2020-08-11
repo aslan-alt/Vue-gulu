@@ -12,9 +12,7 @@
       <g-input v-model="string" class="item" />
       <div class="notes">notes:{{string}}</div>
     </div>
-    <pre style="color:white;font-size:16px">
-      {{content}}
-    </pre>
+    <pre style="color:white;font-size:16px">{{content}}</pre>
 
   </div>
 
@@ -31,11 +29,10 @@ export default {
   data() {
     return {
       content: `
-      <g-input v-model="string" />
-      <g-input value="禁用了哦" disabled />
-      <g-input value="只能读哦" readonly />
-      <g-input value="哇塞" error="可接受错误提示参数，并自带警示icon" />
-      `,
+<g-input value="哇塞" error="可接受错误提示参数，并自带警示icon" />
+<g-input value="禁用了哦" disabled />
+<g-input value="只能读哦" readonly />
+<g-input v-model="string" />`.trim(),
       string: '在这输入，改变notes'
     }
   }
