@@ -89,7 +89,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .col {
-  // background: grey;
+  background: grey;
   $class-prefix: col-;
   @for $n from 1 through 24 {
     &.#{$class-prefix}#{$n} {

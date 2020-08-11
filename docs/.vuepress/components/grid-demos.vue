@@ -75,10 +75,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .colStyle {
+  border: 1px solid red;
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100px;
 }
 </style>
 

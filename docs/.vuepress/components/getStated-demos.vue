@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-top: 10px;">
 
     <g-button>默认按钮</g-button>
     <g-button icon="setting">默认按钮</g-button>
@@ -25,8 +25,7 @@ export default {
 <g-button>默认按钮</g-button>
 <g-button icon="setting">默认按钮</g-button>
 <g-button :loading="true">默认按钮</g-button>
-<g-button disabled>默认按钮</g-button>
-      `.trim()
+<g-button disabled>默认按钮</g-button>`.trim()
     }
   }
 };

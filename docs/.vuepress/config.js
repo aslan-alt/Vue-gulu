@@ -11,7 +11,7 @@ module.exports = {
         sidebar: [
             {
                 title: '入门',
-                children: ['/install/', '/get-started/']
+                children: ['/install/', '/components/get-started']
             },
             {
                 title: '组件',

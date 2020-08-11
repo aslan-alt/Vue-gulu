@@ -1,3 +1,4 @@
-# My UI 官网
+# aslan UI
 
-该UI框架是参考element UI 、ant design
+这是一个通过Vue 实现的UI框架，提供了一些常用的组件，你可以通过查看逐个 commit 来学习本框架的制作思路
+注意：本 UI 框架的代码尚未完全完工，请不要在生产环境中使用本 UI 框架。
