@@ -51,11 +51,7 @@
 <body>
 
     <div id="app" style="padding-top: 10px;padding-left:10px ;">
-        <g-collapse :selected.sync="selectedTab" single>
-            <g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
-            <g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
-            {{selectedTab}}
-        </g-collapse>
+        <button @click="showToast3">关闭</button>
     </div>
     <script src="./src/app.js"></script>
 

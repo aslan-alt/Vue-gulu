@@ -20,6 +20,7 @@ export default {
       type: [Boolean, Number],
       default: true,
       validator(value) {
+        console.log(value)
         return value === false || typeof value === "number";
       },
     },
@@ -55,9 +56,7 @@ export default {
 
     // this.$refs.line.style.height =
   },
-  created() {
-    console.log('xxxx')
-  },
+
   methods: {
     updateStyles() {
       this.$nextTick(() => {
@@ -74,12 +73,11 @@ export default {
       }
     },
     close() {
-      console.log(this.$el)
       this.$el.remove();
       this.$destroy();
     },
     onClickClose() {
-      console.log('xxx')
+
       this.close();
       this.$emit("close");
       if (this.closeButton && typeof this.closeButton.callback === "function") {
@@ -127,12 +125,12 @@ $animation-duration: 500ms;
 }
 
 .wrapper {
+  z-index: 99;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   &.position-top {
     top: 0;
-
     .toast {
       animation: slide-down $animation-duration linear;
       border-top-left-radius: 0;

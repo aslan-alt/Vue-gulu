@@ -1,6 +1,8 @@
 <template>
   <div>
-
+    <button @click="()=>showToast('top')">顶部弹出</button>
+    <button @click="()=>showToast('middle')">中间弹出</button>
+    <button @click="()=>showToast('bottom')">底部弹出</button>
     <pre style="color:white;font-size:16px">{{content}}</pre>
 
   </div>
@@ -9,14 +11,14 @@
 
 
 <script>
-import Collapse from "../../../src/collapse";
-import CollapseItem from "../../../src/collapse-item";
+import Toast from '../../../src/plugin'
+import Vue from 'vue'
 
+Vue.use(Toast)
 
 export default {
   components: {
-    'g-collapse': Collapse,
-    'g-collapse-item': CollapseItem
+    'g-toast': Toast
   },
   data() {
     return {
@@ -44,7 +46,21 @@ export default {
 }`.trim()
     }
   },
-
+  methods: {
+    showToast(position) {
+      this.$toast(`当前余额${Math.random() * 1000}`, {
+        position: 'top',
+        closeButton: {
+          text: '关闭',
+          callback() {
+            console.log('用户说他知道了')
+          }
+        },
+        enableHtml: true,
+        autoClose: true
+      })
+    },
+  }
 };
 </script>
 <style lang="scss" scoped>
