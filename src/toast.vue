@@ -20,7 +20,7 @@ export default {
       type: [Boolean, Number],
       default: true,
       validator(value) {
-        console.log(value)
+        console.log('如果报错 Invalid prop: custom validator check failed for prop "autoClose". 只是因为props检验没通过，将autoClose改为true，就不会有提示')
         return value === false || typeof value === "number";
       },
     },
@@ -41,6 +41,7 @@ export default {
       type: String,
       default: "middle",
       validator(value) {
+
         return ["top", "bottom", "middle"].indexOf(value) >= 0;
       },
     },

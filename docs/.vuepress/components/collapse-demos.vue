@@ -1,10 +1,10 @@
 <template>
   <div>
     <g-collapse :selected.sync="selectedItem" single>
-      <g-collapse-item title="土豆" name="1">土豆丝、土豆烧牛腩、老干妈土豆丝</g-collapse-item>
-      <g-collapse-item title="茄子" name="2">红烧茄子、鱼香茄子、烤茄子</g-collapse-item>
+      <g-collapse-item title="土豆" name="土豆">土豆丝、土豆烧牛腩、老干妈土豆丝</g-collapse-item>
+      <g-collapse-item title="茄子" name="茄子">红烧茄子、鱼香茄子、烤茄子</g-collapse-item>
     </g-collapse>
-    <p v-if="selectedItem.length >= 1" style="color:green">您展开标题{{...selectedItem}} 的内容</p>
+    <p v-if="selectedItem.length >= 1">您展开标题<span style="color:red"> {{...selectedItem}} </span>的内容</p>
     <p v-else style="color:green">您目前没选中任何内容，可以添加默认值的哦</p>
     <pre style="color:white;font-size:16px">{{content}}</pre>
 
@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      selectedItem: ['1'],
+      selectedItem: ['茄子'],
       content: `
 <template>
     <g-collapse :selected.sync="selectedTab" single>

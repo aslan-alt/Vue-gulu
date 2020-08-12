@@ -5,7 +5,6 @@ module.exports = {
     themeConfig: {
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Guide', link: '/https://juejin.im/post/6854573215332302862/' },
             { text: 'Source code', link: 'https://github.com/aslan-alt/Vue-gulu' },
         ],
         sidebar: [

@@ -71,16 +71,18 @@ new Vue({
         showToast3() {
             this.showToast('middle')
         },
-        showToast(position) {
+        showToast(propOption) {
             this.$toast(`当前余额${Math.random() * 1000}`, {
-                position,
+                position: 'top',
                 closeButton: {
                     text: '关闭',
                     callback() {
                         console.log('用户说他知道了')
                     }
                 },
-                enableHtml: true
+                enableHtml: true,
+                autoClose: false,
+                ...propOption
             })
         },
 
