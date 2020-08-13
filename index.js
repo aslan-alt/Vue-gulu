@@ -9,7 +9,6 @@ import Sider from './src/sider.vue'
 import Footer from './src/footer.vue'
 import Content from './src/content.vue'
 import Layout from './src/layout.vue'
-import Toast from './src/toast.vue'
 import Tabs from './src/tabs.vue'
 import TabsHead from './src/tabs-head.vue'
 import TabsBody from './src/tabs-body.vue'
@@ -41,5 +40,5 @@ export {
     Popover,
     Collapse,
     CollapseItem,
-    Toast
+
 }
