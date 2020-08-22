@@ -30,6 +30,8 @@ export default {
 import { Toast } from 'gulu-aslan'
 import Vue from 'vue'
 
+Vue.use(Toast)
+
 export default {
   methods: {
     showToast(propOption) {
